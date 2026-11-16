@@ -10,25 +10,28 @@ public class CoffeePotController {
     public void start() {
         while (true) {
             view.showMenu();
-            String input = view.getUserInput();
-            String[] parts = input.trim().split("\\s+");
+            String input = view.getUserInput().trim();
 
-            if (parts[0].equalsIgnoreCase("exit")) {
+            if (input.equalsIgnoreCase("exit")) {
                 break;
             }
 
+            String[] parts = input.split("\\s+");
+
             try {
-                if (parts[0].equalsIgnoreCase("status")) {
-                    view.displayMessage("Current volume: " + model.getCurrentVolume());
+                if (parts[0].equalsIgnoreCase("status") && parts.length == 1) {
+                    displayStatus();
                 } else if (parts.length == 2) {
                     int amount = Integer.parseInt(parts[1]);
 
                     if (parts[0].equalsIgnoreCase("brew")) {
                         model.brew(amount);
                         view.displayMessage("Coffee brewed successfully.");
+                        displayStatus();
                     } else if (parts[0].equalsIgnoreCase("pour")) {
                         model.pour(amount);
                         view.displayMessage("Coffee poured successfully.");
+                        displayStatus();
                     } else {
                         view.displayMessage("Unknown command.");
                     }
@@ -41,5 +44,9 @@ public class CoffeePotController {
         }
 
         view.displayMessage("Goodbye!");
+    }
+
+    private void displayStatus() {
+        view.displayMessage("Current volume: " + model.getCurrentVolume());
     }
 }

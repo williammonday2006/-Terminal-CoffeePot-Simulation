@@ -13,3 +13,6 @@ I created CoffeePotView to display the menu and read user input using Scanner. K
 I created CoffeePotController to connect the Model and View. It reads commands, converts amounts into integers, and calls the correct Model methods. It also handles invalid commands and errors.
 
 The View receives input, the Controller processes it, and the Model updates the coffee volume.
+
+# Phase 4
+I updated the Controller to display the pot's volume after successful actions. I also improved error handling so invalid commands and amounts don't crash the program. The exit command now closes the application properly.
