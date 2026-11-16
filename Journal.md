@@ -16,3 +16,6 @@ The View receives input, the Controller processes it, and the Model updates the 
 
 # Phase 4
 I updated the Controller to display the pot's volume after successful actions. I also improved error handling so invalid commands and amounts don't crash the program. The exit command now closes the application properly.
+
+# Phase 5
+I tested brewing, pouring, maximum capacity, empty pots, and invalid commands. The program handled these situations correctly without crashing. I learned how MVC separates data, user interaction, and application logic, making the program easier to organize and maintain.
